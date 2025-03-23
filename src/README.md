@@ -12,7 +12,6 @@ A FastAPI-based microservice for parsing and storing candidate data, full-text s
 - ✅ Fallback search using `ILIKE`
 - ✅ Generate PDF resume with Arial font and Cyrillic support
 - ✅ Clean architecture: service, models, routing
-- ✅ Fully containerized (Docker)
 
 ---
 
@@ -20,6 +19,7 @@ A FastAPI-based microservice for parsing and storing candidate data, full-text s
 
 ```
 cv_parser/
+├──venv
 ├── src/
 │   └── cv_fetcher/
 │       ├── apis/              # FastAPI endpoints
@@ -40,8 +40,8 @@ cv_parser/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-org/cv-fetcher.git
-cd cv-fetcher
+git clone https://github.com/SashaShapka/cv-fetcher.git
+
 ```
 
 2. Create virtual environment:
@@ -57,7 +57,8 @@ pip install -r requirements.txt
 
 4. Start PostgreSQL (or use Docker):
 ```bash
-docker compose up -d db
+cd cv-fetcher
+docker compose up -d
 ```
 
 5. Run the app:
@@ -118,26 +119,3 @@ Content-Disposition: attachment; filename=resume_Senior_Developer.pdf
 - Cyrillic support
 - Wrapped long lines
 - Bolded headers for Skills, Experience, Source
-
----
-
-## 🐳 Docker
-
-```bash
-docker build -t cv-fetcher .
-docker run -p 8000:8000 cv-fetcher
-```
-
----
-
-## 🧪 Testing
-
-```bash
-pytest
-```
-
----
-
-## 📄 License
-
-MIT © Your Name
